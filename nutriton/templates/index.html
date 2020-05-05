@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<p>
+※昨日食べた料理から、免疫力を保つうえで必要な料理を推薦してくれるサイトです
+</p>
+<form action="{% url 'result' %}" method='POST'>
+{% csrf_token %}
+
+<div class="row">
+  <div class="col-xs-1">
+    <label for="ex1">　昨日食べた料理1</label>
+    <input class="form-control" name="eat1" type="text" placeholder="しいたけごはん">
+  </div>
+  <div class="col-xs-3">
+    <label for="ex2">昨日食べた料理2</label>
+    <input class="form-control" name="eat2" type="text" placeholder="ビーフシチュー">
+  </div>
+  <div class="col-xs-3">
+    <label for="ex3">昨日食べた料理3</label>
+    <input class="form-control" name="eat3" type="text">
+  </div>
+  <div class="col-xs-3">
+    <label for="ex3">昨日食べた料理4</label>
+    <input class="form-control" name="eat4" type="text">
+  </div>
+</div>
+
+<br>
+<button type="submit">計算</button>
+</form>
+
+
+</body>
+</html>

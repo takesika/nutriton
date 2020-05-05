@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h2><p class="text-primary">あなたの食べた料理の栄養素</p></h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                        <th scope="col">料理名</th>
+                        <th scope="col">エネルギーkcal</th>
+                        <th scope="col">たんぱく質</th>
+                        <th scope="col">食物繊維</th>
+                        <th scope="col">亜鉛</th>
+                        <th scope="col">銅</th>
+                        <th scope="col">セレン</th>
+                        <th scope="col">レチノール当量</th>
+                        <th scope="col">ビタミンD</th>
+                        <th scope="col">トコフェロールa</th>
+                        <th scope="col">ビタミンB1</th>
+                        <th scope="col">ビタミンB2</th>
+                        <th scope="col">ナイアシン</th>
+                        <th scope="col">ビタミンB6</th>
+                        <th scope="col">ビタミンB12</th>
+                        <th scope="col">ビタミンC</th>
+                        <th scope="col">食塩相当量</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for index,row in finish_food.iterrows %}
+                <tr>
+                    <td>{{ row.料理名 }}</td>
+                    <td>{{ row.エネルギーkcal }}</td>
+                    <td>{{ row.たんぱく質 }}</td>
+                    <td>{{ row.総量 }}</td>
+                    <td>{{ row.亜鉛 }}</td>
+                    <td>{{ row.銅 }}</td>
+                    <td>{{ row.セレン }}</td>
+                    <td>{{ row.レチノール当量 }}</td>
+                    <td>{{ row.D }}</td>
+                    <td>{{ row.トコフェロールa }}</td>
+                    <td>{{ row.B1 }}</td>
+                    <td>{{ row.B2 }}</td>
+                    <td>{{ row.ナイアシン }}</td>
+                    <td>{{ row.B6 }}</td>
+                    <td>{{ row.B12 }}</td>
+                    <td>{{ row.C }}</td>
+                    <td>{{ row.食塩相当量 }}</td>                
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <h2><p class="text-primary">足りない栄養素</p></h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                        <th scope="col">料理名</th>
+                        <th scope="col">エネルギーkcal</th>
+                        <th scope="col">たんぱく質</th>
+                        <th scope="col">食物繊維</th>
+                        <th scope="col">亜鉛</th>
+                        <th scope="col">銅</th>
+                        <th scope="col">セレン</th>
+                        <th scope="col">レチノール当量</th>
+                        <th scope="col">ビタミンD</th>
+                        <th scope="col">トコフェロールa</th>
+                        <th scope="col">ビタミンB1</th>
+                        <th scope="col">ビタミンB2</th>
+                        <th scope="col">ナイアシン</th>
+                        <th scope="col">ビタミンB6</th>
+                        <th scope="col">ビタミンB12</th>
+                        <th scope="col">ビタミンC</th>
+                        <th scope="col">食塩相当量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for row in required_list %}
+                    <td>{{ row }}</td>
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <h2><p class="text-primary">推薦料理 TOP3</p></h2>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                        <th scope="col">料理名</th>
+                        <th scope="col">エネルギーkcal</th>
+                        <th scope="col">たんぱく質</th>
+                        <th scope="col">食物繊維</th>
+                        <th scope="col">亜鉛</th>
+                        <th scope="col">銅</th>
+                        <th scope="col">セレン</th>
+                        <th scope="col">レチノール当量</th>
+                        <th scope="col">ビタミンD</th>
+                        <th scope="col">トコフェロールa</th>
+                        <th scope="col">ビタミンB1</th>
+                        <th scope="col">ビタミンB2</th>
+                        <th scope="col">ナイアシン</th>
+                        <th scope="col">ビタミンB6</th>
+                        <th scope="col">ビタミンB12</th>
+                        <th scope="col">ビタミンC</th>
+                        <th scope="col">食塩相当量</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for index,row in result_list.iterrows %}
+                <tr>
+                    <td>{{ row.料理名 }}</td>
+                    <td>{{ row.エネルギーkcal }}</td>
+                    <td>{{ row.たんぱく質 }}</td>
+                    <td>{{ row.総量 }}</td>
+                    <td>{{ row.亜鉛 }}</td>
+                    <td>{{ row.銅 }}</td>
+                    <td>{{ row.セレン }}</td>
+                    <td>{{ row.レチノール当量 }}</td>
+                    <td>{{ row.D }}</td>
+                    <td>{{ row.トコフェロールa }}</td>
+                    <td>{{ row.B1 }}</td>
+                    <td>{{ row.B2 }}</td>
+                    <td>{{ row.ナイアシン }}</td>
+                    <td>{{ row.B6 }}</td>
+                    <td>{{ row.B12 }}</td>
+                    <td>{{ row.C }}</td>
+                    <td>{{ row.食塩相当量 }}</td>                
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<hr>
+<h3>※免疫力を高める栄養素とは？</h3>
+<ul>
+  <li>たんぱく質
+  <ul>
+    <li>一日の必要量:60</li>
+    <li>説明：タンパク質は、細胞の主要な成分ですので、豆腐、肉、乳類などの良質のタンパク質を摂取することで、免疫細胞の働きを良くしてくれます。</li>
+  </ul>
+  </li>
+  <li>食物繊維
+  <ul>
+    <li>一日の必要量:20</li>
+    <li>説明：食物繊維は便秘予防によいというだけではありません。善玉菌を増やして免疫力をアップさせるという、健康維持に重要な役割を担っています。</li>
+  </ul>
+  </li>
+  <li>亜鉛
+  <ul>
+    <li>一日の必要量:11</li>
+    <li>説明：亜鉛が関与している代謝酵素は200種以上とも言われ、DNAやタンパク質の合成、視力や聴力、性ホルモンの分泌、免疫力のコントロールなど様々な働きに関与しています。</li>
+  </ul>
+  </li>
+  <li>銅
+  <ul>
+    <li>一日の必要量:0.7</li>
+    <li>説明：マクロファージなどの免疫細胞のエネルギー代謝にかかわるチトクロムCオキシダーゼという酵素の構成成分であるため、免疫力を高める効果もある</li>
+  </ul>
+  </li>
+  <li>セレン
+  <ul>
+    <li>一日の必要量:30</li>
+    <li>説明：。体内に侵入した異物を直接排除して、感染を防ぐ働きもあります。</li>
+  </ul>
+  </li>
+  <li>レチノール（ビタミンA）
+  <ul>
+    <li>一日の必要量:900</li>
+    <li>説明：粘膜を丈夫にし、ウイルスの侵入をブロックします。風邪だけでなく、病気全般の予防に役立ちます。</li>
+  </ul>
+  </li>
+  </li>
+  <li>ビタミンD
+  <ul>
+    <li>一日の必要量:5.5</li>
+    <li>説明：ビタミンDには、「免疫機能を調節する」働きもあります。体内に侵入したウイルスや細菌などに対して、過剰な免疫反応を抑制し、必要な免疫機能を促進します。このため、かぜやインフルエンザ、気管支炎や肺炎などの感染症の発症・悪化の予防にも関与することが分かってきました。</li>
+  </ul>
+  </li>
+  <li>トコフェロール（ビタミンE）
+  <ul>
+    <li>一日の必要量:6.5</li>
+    <li>説明：免疫細胞を直接活性化すると共に、免疫抑制物質の生成を防ぎます。また、強い抗酸化力で活性酸素による細胞の破壊を防ぎます。 </li>
+  </ul>
+  </li>
+  <li>ビタミンB1
+  <ul>
+    <li>一日の必要量:1.4</li>
+    <li>説明：不足するとかっけなど神経障害を伴う疾患を起こすことが知られていたが、最近の研究から、腸の「パイエル板」という組織にある免疫細胞の維持にも深く関わっていることがわかった。ビタミンB1が減るとパイエル板は小さくなり、生体の防御機能が弱くなる。そのため感染症にかかりやすくなる恐れがある。 </li>
+  </ul>
+  </li>
+  <li>ビタミンB2
+  <ul>
+    <li>一日の必要量:1.6</li>
+    <li>説明： ビタミンB2の働きは生活習慣病を予防するのに欠かせない栄養素です。不足すると皮膚や粘膜が敏感になり、目の充血、肌あれ、髪の毛の悩み、脂漏性皮膚炎、口内炎、口角炎などをおこします。 </li>
+  </ul>
+  </li>
+  <li>ナイアシン
+  <ul>
+    <li>一日の必要量:15</li>
+    <li>説明： ナイアシン は、ニコチン酸とニコチン酸アミドの総称で、ビタミンB₃ ともいう。水溶性ビタミンのビタミンB複合体の一つで熱に強く、糖質・脂質・タンパク質の代謝に不可欠である。循環系、消化系、神経系の働きを促進するなどの働きがある。欠乏すると皮膚炎、口内炎、神経炎や下痢などの症状を生じる。 </li>
+  </ul>
+  </li>
+  <li>ビタミンB6
+  <ul>
+    <li>一日の必要量:1.4</li>
+    <li>説明：補酵素（酵素の働きを助ける成分）として多くのアミノ酸の代謝を助けています。免疫機能の正常な働きの維持、皮膚の抵抗力の増進、赤血球のヘモグロビンの合成、神経伝達物質の合成などの生理作用もあり、脂質の代謝にも関与しています。 </li>
+  </ul>
+  </li>
+  <li>ビタミンB12
+  <ul>
+    <li>一日の必要量:2.4</li>
+    <li>説明：たんぱく質と結合しており、胃の中でたんぱく質が変性・分解されると、遊離のビタミンB12になります。ビタミンB12は補酵素としてたんぱく質や核酸の生合成、アミノ酸や脂肪酸の代謝に関与しています。また、赤血球の成熟に関与し、葉酸とともに骨髄で正常な赤血球をつくります。 </li>
+  </ul>
+  </li>
+  <li>ビタミンC
+  <ul>
+    <li>一日の必要量:100</li>
+    <li>説明：ビタミンCには、細菌やウイルスを体内に侵入させにくくし、さらに侵入してしまった細菌やウイルスを攻撃して免疫力を高めて風邪を引きにくくし、風邪を引いてしまっても早く治す働きがあります。 </li>
+  </ul>
+  </li>
+</ul>
+
+</body>
+</html>
